@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Apprenants</string>
+    <string name="titlePageOne">Liste des Apprenants</string>
+    <string name="promoPrompt">Promo</string>
+    <string name="sessionPrompt">Session</string>
+    <string name="skillPrompt">Skill</string>
+    <string-array name="listPromo">
+        <item>Promo 1</item>
+        <item>Promo 2</item>
+    </string-array>
+    <string-array name="listSession">
+        <item>Session 1</item>
+        <item>Session 2</item>
+    </string-array>
+    <string-array name="listSkill">
+        <item>Skill 1</item>
+        <item>Skill 2</item>
+    </string-array>
+</resources>
