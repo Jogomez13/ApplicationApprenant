@@ -12,6 +12,8 @@ import fr.fondespierre.beweb.mobile.apprenants.dal.enumerations.Ville;
  */
 
 public class Data {
+
+    public static JSONObject apprenant;
     public static JSONArray getApprenants() throws JSONException {
         JSONArray apprenants = new JSONArray();
         JSONObject alex = new JSONObject();
@@ -25,6 +27,9 @@ public class Data {
         alex.putOpt("promotion",1);
         alex.putOpt("session",1);
         alex.putOpt("status", Status.Chomage);
+        alex.putOpt("email", "alex@gmail.com");
+        alex.putOpt("tel", "0000000000");
+
 
         jc.putOpt("id",2);
         jc.putOpt("nom","Petetin");
@@ -33,6 +38,8 @@ public class Data {
         jc.putOpt("promotion",1);
         jc.putOpt("session",2);
         jc.putOpt("status",Status.Formation);
+        jc.putOpt("email", "jc@gmail.com");
+        jc.putOpt("tel", "1111111111");
 
         marie.putOpt("id",3);
         marie.putOpt("nom","Urbano");
@@ -41,6 +48,8 @@ public class Data {
         marie.putOpt("promotion",2);
         marie.putOpt("session",1);
         marie.putOpt("status",Status.Formation);
+        marie.putOpt("email", "marie@gmail.com");
+        marie.putOpt("tel", "2222222222");
 
         apprenants.put(alex);
         apprenants.put(jc);

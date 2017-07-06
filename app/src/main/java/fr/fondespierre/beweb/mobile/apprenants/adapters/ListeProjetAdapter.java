@@ -1,8 +1,6 @@
 package fr.fondespierre.beweb.mobile.apprenants.adapters;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,33 +8,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.w3c.dom.Text;
+import org.json.JSONObject;
 
-import fr.fondespierre.beweb.mobile.apprenants.DetailApprenantActivity;
 import fr.fondespierre.beweb.mobile.apprenants.R;
-import fr.fondespierre.beweb.mobile.apprenants.dal.Data;
 
 /**
- * Created by root on 05/07/17.
+ * Created by root on 06/07/17.
  */
 
-public class ListeApprenantAdapter extends ArrayAdapter {
-
-
+public class ListeProjetAdapter extends ArrayAdapter {
     private final Activity act;
-    private final int resource = R.layout.liste_apprenant_item;
-    private final JSONArray apprenants;
+    private final int resource = R.layout.projets_item;
+    private final JSONObject apprenant;
+    private final JSONArray projets;
 
 
-    public ListeApprenantAdapter(@NonNull Activity activity, @LayoutRes int resource, JSONArray liste) {
+
+    public ListeProjetAdapter(@NonNull Activity activity, @LayoutRes int resource, JSONObject liste) throws JSONException {
         super(activity.getApplicationContext(), resource);
         this.act = activity;
-        this.apprenants = liste;
+        this.apprenant = liste;
+        this.projets = apprenant.getJSONArray("projects");
 
     }
 
@@ -48,25 +44,25 @@ public class ListeApprenantAdapter extends ArrayAdapter {
         LayoutInflater inflater = act.getLayoutInflater();
         convertView = inflater.inflate(resource,null);
 
-        TextView firstName = (TextView)convertView.findViewById(R.id.laItem_textView_prenom);
-        TextView lastName = (TextView)convertView.findViewById(R.id.laItem_textView_nom);
+        TextView name = (TextView)convertView.findViewById(R.id.pItem_textView_nom_projet);
+        /*TextView lastName = (TextView)convertView.findViewById(R.id.laItem_textView_nom);
 
         ImageView detail = (ImageView)convertView.findViewById(R.id.laItem_imageButton_detail);
         detail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
                     Intent intent = new Intent(act.getApplicationContext(), DetailApprenantActivity.class);
-                    Data.apprenant = apprenants.getJSONObject(index);
+                    intent.putExtra("id",apprenants.getJSONObject(index).getInt("id"));
                     act.startActivity(intent);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
             }
-        });
+        });*/
         try {
-            firstName.setText(apprenants.getJSONObject(position).getString("prenom"));
-            lastName.setText(apprenants.getJSONObject(position).getString("nom"));
+            name.setText(projets.getJSONObject(position).getString("nom"));
+//            lastName.setText(apprenants.getJSONObject(position).getString("nom"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -79,6 +75,6 @@ public class ListeApprenantAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return apprenants.length();
+        return projets.length();
     }
 }
