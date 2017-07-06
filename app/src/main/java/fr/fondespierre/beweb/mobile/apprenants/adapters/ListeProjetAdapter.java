@@ -32,7 +32,7 @@ public class ListeProjetAdapter extends ArrayAdapter {
         super(activity.getApplicationContext(), resource);
         this.act = activity;
         this.apprenant = liste;
-        this.projets = apprenant.getJSONArray("projects");
+        this.projets = apprenant.getJSONArray("projets");
 
     }
 
@@ -61,7 +61,7 @@ public class ListeProjetAdapter extends ArrayAdapter {
             }
         });*/
         try {
-            name.setText(projets.getJSONObject(position).getString("nom"));
+            name.setText(projets.getJSONObject(position).getString("titre"));
 //            lastName.setText(apprenants.getJSONObject(position).getString("nom"));
         } catch (JSONException e) {
             e.printStackTrace();

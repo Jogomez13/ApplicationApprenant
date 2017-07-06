@@ -4,6 +4,11 @@
     <string name="promoPrompt">Choisir une Promotion</string>
     <string name="sessionPrompt">Choisir une Session</string>
     <string name="skillPrompt">Choisir un Skill</string>
+    <string name="skills">Skills</string>
+    <string name="projects">Projets</string>
+    <string name="formations">Formations</string>
+    <string name="infosPerso">Infos Perso</string>
+
     <string-array name="listPromo">
         <item>Promo 1</item>
         <item>Promo 2</item>

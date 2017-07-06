@@ -17,6 +17,8 @@ import fr.fondespierre.beweb.mobile.apprenants.adapters.ListeProjetAdapter;
 import fr.fondespierre.beweb.mobile.apprenants.adapters.ListeSkillAdapter;
 import fr.fondespierre.beweb.mobile.apprenants.dal.Data;
 
+import static fr.fondespierre.beweb.mobile.apprenants.dal.Data.apprenant;
+
 public class DetailApprenantActivity extends AppCompatActivity {
 
     @Override
@@ -30,9 +32,6 @@ public class DetailApprenantActivity extends AppCompatActivity {
             ((TextView)findViewById(R.id.da_textView_nom)).setText(apprenant.getString("nom"));
             ((TextView)findViewById(R.id.da_textView_prenom)).setText(apprenant.getString("prenom"));
             ((TextView)findViewById(R.id.da_textView_age)).setText(apprenant.getString("age"));
-            ((TextView)findViewById(R.id.da_textView_email)).setText(apprenant.getString("email"));
-            ((TextView)findViewById(R.id.da_textView_tel)).setText(apprenant.getString("tel"));
-            ((TextView)findViewById(R.id.da_textView_status)).setText(apprenant.getString("status"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -45,12 +44,12 @@ public class DetailApprenantActivity extends AppCompatActivity {
         ListeProjetAdapter projetAdapter = null;
 
 
-        /*try {
+        try {
             skillAdapter = new ListeSkillAdapter(this,0,apprenant);
             projetAdapter = new ListeProjetAdapter(this,0,apprenant);
         } catch (JSONException e) {
             e.printStackTrace();
-        }*/
+        }
 
         listeSkills.setAdapter(skillAdapter);
         listeProjets.setAdapter(projetAdapter);

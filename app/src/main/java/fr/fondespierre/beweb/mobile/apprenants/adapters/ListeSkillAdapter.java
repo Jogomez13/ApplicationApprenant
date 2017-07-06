@@ -63,8 +63,8 @@ public class ListeSkillAdapter extends ArrayAdapter {
             }
         });*/
         try {
-            name.setText(skills.getJSONObject(position).getString("nom"));
-            int niveau = skills.getJSONObject(position).getInt("niveau") * 5;
+            name.setText(skills.getJSONObject(position).getString("name"));
+            int niveau = skills.getJSONObject(position).getInt("level") * 5;
             level.setNumStars(3);
 
         } catch (JSONException e) {
