@@ -47,21 +47,7 @@ public class ListeSkillAdapter extends ArrayAdapter {
 
         TextView name = (TextView)convertView.findViewById(R.id.sItem_textView_nom);
         RatingBar level = (RatingBar)convertView.findViewById(R.id.sItem_ratingBar_niveau);
-        /*TextView lastName = (TextView)convertView.findViewById(R.id.laItem_textView_nom);
 
-        ImageView detail = (ImageView)convertView.findViewById(R.id.laItem_imageButton_detail);
-        detail.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    Intent intent = new Intent(act.getApplicationContext(), DetailApprenantActivity.class);
-                    intent.putExtra("id",apprenants.getJSONObject(index).getInt("id"));
-                    act.startActivity(intent);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
         try {
             name.setText(skills.getJSONObject(position).getString("name"));
             int niveau = skills.getJSONObject(position).getInt("level") * 5;
@@ -71,8 +57,6 @@ public class ListeSkillAdapter extends ArrayAdapter {
             e.printStackTrace();
         }
 
-        /*TextView mainSkill = (TextView)convertView.findViewById(R.id.laItem_textView_skill);
-        firstName.setText(.optString("skill"));*/
 
         return convertView;
     }

@@ -29,6 +29,8 @@ public class ListeApprenantAdapter extends ArrayAdapter {
 
 
     private final Activity act;
+
+    // c'est la vue qui affiche l'objet
     private final int resource = R.layout.liste_apprenant_item;
     private final JSONArray apprenants;
 
@@ -45,16 +47,25 @@ public class ListeApprenantAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         final int index = position;
+
+        /* L'inflater, c'est un objet qui va construire tous les éléments contenus dans un layout
+        pour afficher l'objet à la position spécifiée.*/
+
         LayoutInflater inflater = act.getLayoutInflater();
         convertView = inflater.inflate(resource,null);
 
+
+        // set listview with the text values in the field corresponding with the ID
         TextView firstName = (TextView)convertView.findViewById(R.id.laItem_textView_prenom);
         TextView lastName = (TextView)convertView.findViewById(R.id.laItem_textView_nom);
 
+
+        // redirection grâce à l'id que nous avons attribué
         ImageView detail = (ImageView)convertView.findViewById(R.id.laItem_imageButton_detail);
         detail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
+
                     Intent intent = new Intent(act.getApplicationContext(), DetailApprenantActivity.class);
                     Data.apprenant = apprenants.getJSONObject(index);
                     act.startActivity(intent);
@@ -65,14 +76,14 @@ public class ListeApprenantAdapter extends ArrayAdapter {
             }
         });
         try {
+
+            // on attribue dans le texte dans le champs correspondant
             firstName.setText(apprenants.getJSONObject(position).getString("prenom"));
             lastName.setText(apprenants.getJSONObject(position).getString("nom"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-        /*TextView mainSkill = (TextView)convertView.findViewById(R.id.laItem_textView_skill);
-        firstName.setText(.optString("skill"));*/
 
         return convertView;
     }

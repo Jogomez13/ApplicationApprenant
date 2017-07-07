@@ -28,7 +28,11 @@ public class DetailApprenantActivity extends AppCompatActivity {
 
 
         try {
+
+            // create json array and get the data of apprenant
             JSONObject apprenant = Data.apprenant;
+
+            // Set text values in the field corresponding with the ID
             ((TextView)findViewById(R.id.da_textView_nom)).setText(apprenant.getString("nom"));
             ((TextView)findViewById(R.id.da_textView_prenom)).setText(apprenant.getString("prenom"));
             ((TextView)findViewById(R.id.da_textView_age)).setText(apprenant.getString("age"));
@@ -36,6 +40,7 @@ public class DetailApprenantActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // set listview with the skills values in the field corresponding with the ID
         ListView listeSkills = (ListView) findViewById(R.id.da_listView_skills);
         ListView listeProjets = (ListView) findViewById(R.id.da_listView_projets);
 
@@ -45,6 +50,7 @@ public class DetailApprenantActivity extends AppCompatActivity {
 
 
         try {
+
             skillAdapter = new ListeSkillAdapter(this,0,apprenant);
             projetAdapter = new ListeProjetAdapter(this,0,apprenant);
         } catch (JSONException e) {

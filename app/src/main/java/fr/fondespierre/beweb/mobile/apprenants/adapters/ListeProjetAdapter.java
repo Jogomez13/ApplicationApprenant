@@ -45,30 +45,13 @@ public class ListeProjetAdapter extends ArrayAdapter {
         convertView = inflater.inflate(resource,null);
 
         TextView name = (TextView)convertView.findViewById(R.id.pItem_textView_nom_projet);
-        /*TextView lastName = (TextView)convertView.findViewById(R.id.laItem_textView_nom);
 
-        ImageView detail = (ImageView)convertView.findViewById(R.id.laItem_imageButton_detail);
-        detail.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                try {
-                    Intent intent = new Intent(act.getApplicationContext(), DetailApprenantActivity.class);
-                    intent.putExtra("id",apprenants.getJSONObject(index).getInt("id"));
-                    act.startActivity(intent);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        });*/
         try {
             name.setText(projets.getJSONObject(position).getString("titre"));
-//            lastName.setText(apprenants.getJSONObject(position).getString("nom"));
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        /*TextView mainSkill = (TextView)convertView.findViewById(R.id.laItem_textView_skill);
-        firstName.setText(.optString("skill"));*/
 
         return convertView;
     }
